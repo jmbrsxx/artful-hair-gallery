@@ -65,7 +65,7 @@ const Index = () => {
         />
         <div className="absolute inset-0" style={{ background: "var(--gradient-overlay)" }} />
         <div className="relative z-10 container text-center px-4 pt-20">
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full gold-border bg-background/40 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full gold-border bg-background/40 backdrop-blur-sm opacity-0 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <div className="flex">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-primary text-primary" />
@@ -73,21 +73,24 @@ const Index = () => {
             </div>
             <span className="text-sm text-foreground/90">4,8 · 272 avaliações no Google</span>
           </div>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight">
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl mb-6 leading-tight opacity-0 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             Beleza, estilo e <br />
             <span className="text-gradient-gold italic">sofisticação</span>
           </h1>
-          <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-10 font-light">
+          <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-10 font-light opacity-0 animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
             No coração do Centro Histórico de Porto Alegre, um salão onde tradição e expertise se encontram para revelar a sua melhor versão.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-gold text-primary-foreground hover:opacity-90 shadow-gold border-0 px-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up" style={{ animationDelay: "1s" }}>
+            <Button size="lg" className="bg-gradient-gold text-primary-foreground hover:opacity-90 hover:scale-105 shadow-gold border-0 px-8 transition-smooth">
               Agendar Horário
             </Button>
-            <Button size="lg" variant="outline" className="gold-border bg-transparent hover:bg-primary/10 px-8">
+            <Button size="lg" variant="outline" className="gold-border bg-transparent hover:bg-primary/10 hover:scale-105 px-8 transition-smooth">
               Nossos Serviços
             </Button>
           </div>
+        </div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-float">
+          <div className="w-[1px] h-16 bg-gradient-to-b from-primary to-transparent" />
         </div>
       </header>
 
