@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Star, MapPin, Phone, Clock, Scissors, Sparkles, Award, Heart } from "lucide-react";
+import { Reveal } from "@/components/Reveal";
 import heroImage from "@/assets/hero-salon.jpg";
 import serviceHair from "@/assets/service-hair.jpg";
 import productsImg from "@/assets/products.jpg";
