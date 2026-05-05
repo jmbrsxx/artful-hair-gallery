@@ -97,7 +97,7 @@ const Index = () => {
       {/* Sobre */}
       <section id="sobre" className="py-24 container">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div>
+          <Reveal variant="left">
             <span className="text-primary text-sm tracking-[0.3em] uppercase">Nossa História</span>
             <h2 className="font-serif text-4xl md:text-5xl mt-4 mb-6">
               Um <span className="text-gradient-gold italic">refúgio</span> de elegância no centro de Porto Alegre
@@ -112,42 +112,44 @@ const Index = () => {
               <Sparkles className="w-4 h-4 text-primary" />
               Empresa de empreendedoras
             </div>
-          </div>
-          <div className="relative">
+          </Reveal>
+          <Reveal variant="right" delay={150} className="relative">
             <img
               src={interiorImg}
               alt="Interior do salão"
-              className="w-full rounded-sm shadow-elegant"
+              className="w-full rounded-sm shadow-elegant transition-smooth hover:scale-[1.02]"
               loading="lazy"
               width={1024}
               height={1024}
             />
-            <div className="absolute -bottom-6 -left-6 bg-gradient-gold text-primary-foreground p-6 rounded-sm shadow-gold hidden md:block">
+            <div className="absolute -bottom-6 -left-6 bg-gradient-gold text-primary-foreground p-6 rounded-sm shadow-gold hidden md:block animate-float">
               <div className="font-serif text-4xl">4,8</div>
               <div className="text-xs tracking-widest uppercase">272 Avaliações</div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Serviços */}
       <section id="servicos" className="py-24" style={{ background: "var(--gradient-dark)" }}>
         <div className="container">
-          <div className="text-center mb-16">
+          <Reveal className="text-center mb-16">
             <span className="text-primary text-sm tracking-[0.3em] uppercase">O que oferecemos</span>
             <h2 className="font-serif text-4xl md:text-5xl mt-4">
               Nossos <span className="text-gradient-gold italic">Serviços</span>
             </h2>
-          </div>
+          </Reveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((s) => (
-              <Card key={s.title} className="bg-card gold-border p-8 transition-smooth hover:shadow-gold hover:-translate-y-2 group">
-                <div className="w-14 h-14 rounded-full bg-gradient-gold flex items-center justify-center mb-6 group-hover:scale-110 transition-smooth">
-                  <s.icon className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <h3 className="font-serif text-2xl mb-3">{s.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
-              </Card>
+            {services.map((s, i) => (
+              <Reveal key={s.title} variant="scale" delay={i * 120}>
+                <Card className="bg-card gold-border p-8 transition-smooth hover:shadow-gold hover:-translate-y-2 group h-full">
+                  <div className="w-14 h-14 rounded-full bg-gradient-gold flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-smooth">
+                    <s.icon className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  <h3 className="font-serif text-2xl mb-3">{s.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -156,29 +158,33 @@ const Index = () => {
       {/* Showcase */}
       <section className="py-24 container">
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="relative overflow-hidden rounded-sm group">
-            <img src={serviceHair} alt="Atendimento profissional" className="w-full h-[500px] object-cover transition-smooth group-hover:scale-105" loading="lazy" width={1024} height={1024} />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-            <div className="absolute bottom-8 left-8 right-8">
-              <h3 className="font-serif text-3xl mb-2 text-gradient-gold">Expertise & Carinho</h3>
-              <p className="text-foreground/80">Profissionais com formação e experiência reconhecidas pelos clientes.</p>
+          <Reveal variant="left">
+            <div className="relative overflow-hidden rounded-sm group">
+              <img src={serviceHair} alt="Atendimento profissional" className="w-full h-[500px] object-cover transition-smooth group-hover:scale-110" loading="lazy" width={1024} height={1024} />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8 transition-smooth group-hover:-translate-y-2">
+                <h3 className="font-serif text-3xl mb-2 text-gradient-gold">Expertise & Carinho</h3>
+                <p className="text-foreground/80">Profissionais com formação e experiência reconhecidas pelos clientes.</p>
+              </div>
             </div>
-          </div>
-          <div className="relative overflow-hidden rounded-sm group">
-            <img src={productsImg} alt="Produtos premium" className="w-full h-[500px] object-cover transition-smooth group-hover:scale-105" loading="lazy" width={1024} height={1024} />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-            <div className="absolute bottom-8 left-8 right-8">
-              <h3 className="font-serif text-3xl mb-2 text-gradient-gold">Produtos Premium</h3>
-              <p className="text-foreground/80">Lojinha com produtos selecionados para você levar para casa.</p>
+          </Reveal>
+          <Reveal variant="right" delay={150}>
+            <div className="relative overflow-hidden rounded-sm group">
+              <img src={productsImg} alt="Produtos premium" className="w-full h-[500px] object-cover transition-smooth group-hover:scale-110" loading="lazy" width={1024} height={1024} />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8 transition-smooth group-hover:-translate-y-2">
+                <h3 className="font-serif text-3xl mb-2 text-gradient-gold">Produtos Premium</h3>
+                <p className="text-foreground/80">Lojinha com produtos selecionados para você levar para casa.</p>
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Avaliações */}
       <section id="avaliacoes" className="py-24" style={{ background: "var(--gradient-dark)" }}>
         <div className="container">
-          <div className="text-center mb-16">
+          <Reveal className="text-center mb-16">
             <span className="text-primary text-sm tracking-[0.3em] uppercase">Quem nos visita</span>
             <h2 className="font-serif text-4xl md:text-5xl mt-4 mb-4">
               O que dizem nossas <span className="text-gradient-gold italic">clientes</span>
@@ -189,21 +195,23 @@ const Index = () => {
               ))}
               <span className="ml-2 text-muted-foreground">4,8 de 5 · 272 avaliações</span>
             </div>
-          </div>
+          </Reveal>
           <div className="grid md:grid-cols-3 gap-6">
-            {reviews.map((r) => (
-              <Card key={r.name} className="bg-card gold-border p-8">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="text-foreground/80 italic mb-6 leading-relaxed">"{r.text}"</p>
-                <div className="border-t border-border pt-4">
-                  <div className="font-serif text-lg text-gradient-gold">{r.name}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{r.when}</div>
-                </div>
-              </Card>
+            {reviews.map((r, i) => (
+              <Reveal key={r.name} delay={i * 150}>
+                <Card className="bg-card gold-border p-8 transition-smooth hover:shadow-gold hover:-translate-y-1 h-full">
+                  <div className="flex mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <p className="text-foreground/80 italic mb-6 leading-relaxed">"{r.text}"</p>
+                  <div className="border-t border-border pt-4">
+                    <div className="font-serif text-lg text-gradient-gold">{r.name}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{r.when}</div>
+                  </div>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -211,39 +219,32 @@ const Index = () => {
 
       {/* Contato */}
       <section id="contato" className="py-24 container">
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-16">
           <span className="text-primary text-sm tracking-[0.3em] uppercase">Visite-nos</span>
           <h2 className="font-serif text-4xl md:text-5xl mt-4">
             Venha nos <span className="text-gradient-gold italic">conhecer</span>
           </h2>
-        </div>
+        </Reveal>
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <Card className="bg-card gold-border p-8 text-center">
-            <MapPin className="w-8 h-8 text-primary mx-auto mb-4" />
-            <h3 className="font-serif text-xl mb-2">Endereço</h3>
-            <p className="text-muted-foreground text-sm">
-              Praça Rui Barbosa, 210<br />Centro Histórico<br />Porto Alegre - RS
-            </p>
-          </Card>
-          <Card className="bg-card gold-border p-8 text-center">
-            <Phone className="w-8 h-8 text-primary mx-auto mb-4" />
-            <h3 className="font-serif text-xl mb-2">Telefone</h3>
-            <p className="text-muted-foreground text-sm mb-2">(51) 3026-4101</p>
-            <a href="tel:+555130264101" className="text-primary text-sm hover:underline">Ligar agora</a>
-          </Card>
-          <Card className="bg-card gold-border p-8 text-center">
-            <Clock className="w-8 h-8 text-primary mx-auto mb-4" />
-            <h3 className="font-serif text-xl mb-2">Horário</h3>
-            <p className="text-muted-foreground text-sm">
-              Segunda a Sábado<br />9:00 - 19:00
-            </p>
-          </Card>
+          {[
+            { icon: MapPin, title: "Endereço", body: <>Praça Rui Barbosa, 210<br />Centro Histórico<br />Porto Alegre - RS</> },
+            { icon: Phone, title: "Telefone", body: <>(51) 3026-4101<br /><a href="tel:+555130264101" className="text-primary text-sm hover:underline">Ligar agora</a></> },
+            { icon: Clock, title: "Horário", body: <>Segunda a Sábado<br />9:00 - 19:00</> },
+          ].map((item, i) => (
+            <Reveal key={item.title} variant="scale" delay={i * 120}>
+              <Card className="bg-card gold-border p-8 text-center transition-smooth hover:shadow-gold hover:-translate-y-1 h-full">
+                <item.icon className="w-8 h-8 text-primary mx-auto mb-4" />
+                <h3 className="font-serif text-xl mb-2">{item.title}</h3>
+                <p className="text-muted-foreground text-sm">{item.body}</p>
+              </Card>
+            </Reveal>
+          ))}
         </div>
-        <div className="text-center mt-12">
-          <Button size="lg" className="bg-gradient-gold text-primary-foreground hover:opacity-90 shadow-gold border-0 px-12">
+        <Reveal className="text-center mt-12">
+          <Button size="lg" className="bg-gradient-gold text-primary-foreground hover:opacity-90 hover:scale-105 shadow-gold border-0 px-12 transition-smooth">
             Agendar pelo Avec
           </Button>
-        </div>
+        </Reveal>
       </section>
 
       {/* Footer */}
